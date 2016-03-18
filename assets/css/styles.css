@@ -1,0 +1,146 @@
+/* fonts */
+.fjalla{
+	font-family: 'Fjalla One', sans-serif;
+}
+.roboto{
+	font-family: 'Roboto Slab';
+	font-style: normal;
+	font-weight: 300;
+	
+	
+}
+.arial{
+	font-family:Arial, sans-serif;
+}
+/* end fonts */
+
+
+/*paddings and margins*/
+.np{
+	
+	padding:0;
+}
+.pdleft0{
+	padding-left:0;
+}
+.mb10{
+	margin-bottom:10px;
+}
+.mt10{
+	margin-top:10px;
+}
+.mt20{
+	margin-top:20px;
+}
+.pb20{
+	padding-bottom:20px;
+}
+/*end paddings and margins*/
+
+
+
+
+
+/*loginmodal*/
+
+.login .modal-header {
+    border: 0 none;
+    padding: 15px 15px 15px;
+    padding: 11px 15px;
+}
+.login .modal-body {
+    /* background-color: #eeeeee; */
+}
+.login .modal-footer {
+    border-top: 0;
+    margin-top: 0px;
+    padding: 10px 20px 20px;
+}
+.login .division {
+    float: none;
+    margin: 0 auto 18px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+.login .division .line {
+    border-top: 1px solid #DFDFDF;
+    position: absolute;
+    top: 10px;
+    width: 34%;
+}
+.login .division .line.l {
+    left: 0;
+}
+.login .division .line.r {
+    right: 0;
+}
+.login .forgot {
+    color: #797979;
+    margin-left: 0;
+    overflow: hidden;
+    text-align: center;
+    width: 100%;
+}
+.login .box .social {
+    float: none;
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.login .social .circle {
+    background-color: #EEEEEE;
+    color: #FFFFFF;
+    border-radius: 100px;
+    display: inline-block;
+    margin: 0 17px;
+    padding: 15px;
+}
+.login .social .circle .fa {
+    font-size: 16px;
+}
+.login .social .github {
+    background-color: #403A3A;
+}
+.login .social .google {
+    background-color: #F74933;
+}
+.login .social .facebook {
+    background-color: #455CA8;
+    color: #FFFFFF;
+}
+.login .form-control {
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.09);
+    box-shadow: 0 1px 0px 0px rgba(0, 0, 0, 0.09) inset;
+    color: #FFFFFF;
+}
+.login .btn-login, .registerBox .btn-register {
+    background-color: /* #00BBFF */ #2B85A1;
+    border-color: /* #00BBFF */ #2B85A1;
+    border-width: 0;
+    color: #FFFFFF;
+    display: block;
+    margin: 0 auto;
+    padding: 15px 50px;
+    text-transform: uppercase;
+    width: 100%;
+}
+.login .box .form input[type="text"], .login .box .form input[type="password"] {
+    border-radius: 3px;
+    border: none;
+    color: #333333;
+    font-size: 16px;
+    height: 46px;
+    margin-bottom: 5px;
+    padding: 13px 12px;
+    width: 100%;
+}
+#loginModal .error{
+	font-weight:bold;
+	color:red;
+}
+/*loginmodal*/
+
+
