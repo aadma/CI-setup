@@ -6,9 +6,9 @@
             <?php if(isset($_SESSION['auth_message']))echo $_SESSION['auth_message'];?>
             <?php echo form_open('',array('class'=>'form-horizontal'));?>
             <div class="form-group">
-                <?php echo form_label('Username','username');?>
-                <?php echo form_error('username');?>
-                <?php echo form_input('username','','class="form-control"');?>
+                <?php echo form_label('Email','identity');?>
+                <?php echo form_error('identity');?>
+                <?php echo form_input('identity','','class="form-control"');?>
             </div>
             <div class="form-group">
                 <?php echo form_submit('submit', 'Won\'t happen again...', 'class="btn btn-primary btn-lg btn-block"');?>
