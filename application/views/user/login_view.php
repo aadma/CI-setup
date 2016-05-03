@@ -3,15 +3,17 @@
     <div class="row">
         <h1>Login</h1>
         <div class="col-lg-4 col-lg-offset-4">
+			<div class="text-success">
             <?php
-			if(isset($_SESSION['auth_message']))
-			echo $_SESSION['auth_message'];
+			if(isset($_SESSION['message']))
+			echo $_SESSION['message'];
 			?>
+			</div>
             <?php echo form_open('',array('class'=>'form-horizontal'));?>
             <div class="form-group">
-                <?php echo form_label('Username','username');?>
-                <?php echo form_error('username');?>
-                <?php echo form_input('username','','class="form-control"');?>
+                <?php echo form_label('Email','email');?>
+                <?php echo form_error('email');?>
+                <?php echo form_input(array('id'=>'identity','class'=>'form-control','placeholder'=>'Email','name'=>'identity'));?>
             </div>
             <div class="form-group">
                 <?php echo form_label('Password','password');?>
