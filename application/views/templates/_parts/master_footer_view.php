@@ -2,7 +2,7 @@
 		
 		<div class="col-xs-12 footer fjalla">
 		
-			
+		
 				
 			
 		</div>
@@ -56,7 +56,7 @@
 							<div class="text-success"></div>
 								<div class="form">
 									<form method="" action="" accept-charset="UTF-8">
-                                    <input id="email" class="form-control" type="text" placeholder="Email" name="email">
+                                    <input id="identity" class="form-control" type="text" placeholder="Email" name="identity">
                                     
                                     <input class="btn btn-default btn-login" type="button" value="Reset" onclick="resetPassAjax()">
                                     </form>
@@ -158,8 +158,11 @@
 								if(typeof error_message !== "undefined"){
 								$(".registerBox .error").html(error_message);
 								}else if(typeof success !== "undefined" && success == "1"){
-									$(".registerBox .text-success").html(json.message);
 									$(".registerBox .error").html();
+									$("#loginModal").modal("hide");
+									$("#regSuccess").modal("show");
+									$("#regSuccess .text-success").html(json.message);
+									
 								}
 								
 								
@@ -172,9 +175,9 @@
 				}
 				
 				function resetPassAjax(){
-					var email = $(".forgotBox #email").val();
-					if(email.length == 0){
-						$(".forgotBox .error").html("<?php echo lang('forgot_password_subheading');?>");
+					var identity = $(".forgotBox #identity").val();
+					if(identity.length == 0){
+						$(".forgotBox .error").html("<?php echo sprintf(lang('forgot_password_subheading'),$this->config->item('identity', 'ion_auth'));?>");
 					}else{
 						
 						$.ajax({
@@ -182,15 +185,18 @@
 							url: "<?php echo site_url('user/forgot');?>",
 							type: 'post',
 							cache:false,
-							data: {ajax:1, email:email},
+							data: {ajax:1, identity:identity},
 							success:function(json){
 								var error_message = json.error;
 								var success = json.reset_success;
 								if(typeof error !== 'undefined'){
 									$(".forgotBox .error").html(error_message);
 								}else if(typeof success !== 'undefined' && success == '1'){
-									$(".forgotBox .text-success").html(json.message);
 									$(".forgotBox .error").html();
+									$("#loginModal").modal("hide");
+									$("#resetPass").modal("show");
+									$("#resetPass .text-success").html(json.message);
+									
 								}
 							}
 							
@@ -223,6 +229,39 @@
 			  </script>
 		  </div>
 	<!--/login popup-->
+	
+	<!-- register success -->
+	<div class="modal fade" id="regSuccess" aria-hidden="true" >
+		      <div class="modal-dialog">
+    		      <div class="modal-content">
+    		         <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h4>Account created</h4>
+                    </div>
+                    <div class="modal-body"> 
+					<div class="text-success"></div>
+					</div>
+				    </div>	
+				</div>
+	</div>			
+	<!-- /register success -->
+	
+	<!-- resetpass success -->
+	<div class="modal fade" id="resetPass" aria-hidden="true" >
+		      <div class="modal-dialog">
+    		      <div class="modal-content">
+    		         <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+                        <h4>Reset password</h4>
+                    </div>
+                    <div class="modal-body"> 
+					<div class="text-success"></div>
+					</div>
+				    </div>	
+				</div>
+	</div>			
+	<!-- /resetpass success -->
+	
 	
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
