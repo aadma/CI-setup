@@ -69,8 +69,7 @@
 							<div class="text-success"></div>
                              <div class="form">
                                 <form method=""  action="" accept-charset="UTF-8">
-                                <input id="email" class="form-control" type="text" placeholder="Email" name="email">
-                                <input id="identity" class="form-control" type="text" placeholder="Username" name="identity">
+                                <input id="identity" class="form-control" type="text" placeholder="Email" name="identity">
                                 <input id="password" class="form-control" type="password" placeholder="Password" name="password">
                                 <input id="password_confirm" class="form-control" type="password" placeholder="Repeat Password" name="password_confirm">
                                 <input class="btn btn-default btn-register" type="button" value="Create account" name="commit" onclick="registerAjax()">
@@ -137,18 +136,18 @@
 					
 				}
 				function registerAjax(){
-					var email = $(".registerBox #email").val();
+					
 					var identity = $(".registerBox #identity").val();
 					var password = $(".registerBox #password").val();
 					var password_confirm = $(".registerBox #password_confirm").val();
-					if(email.length == 0 || password.length == 0 || password_confirm == 0 || identity.length == 0){
+					if(password.length == 0 || password_confirm == 0 || identity.length == 0){
 						$(".registerBox .error").html("<?php echo $this->lang->line('entire_form');?>");
 					}else{
 						
 						$.ajax({
 							url: "<?php echo site_url('user/register');?>",
 							type: "post",
-							data: {ajax: 1, email: email, identity: identity, password: password, password_confirm:password_confirm},
+							data: {ajax: 1, identity: identity, password: password, password_confirm:password_confirm},
 							cache: false,
 							success: function (json) {
 								var error_message = json.error;
