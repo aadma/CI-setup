@@ -144,19 +144,18 @@ class User extends Public_Controller {
 		$tables = $this->config->item('tables','ion_auth');
         $identity_column = $this->config->item('identity','ion_auth');
         $this->data['identity_column'] = $identity_column;
-		$this->form_validation->set_rules('email', ucfirst($this->lang->line('create_user_validation_email_label')), 'required|valid_email|is_unique[' . $tables['users'] . '.email]');
 		$this->form_validation->set_rules('identity',ucfirst($this->lang->line('create_user_validation_identity_label')),'required|is_unique['.$tables['users'].'.'.$identity_column.']');
 		$this->form_validation->set_rules('password', ucfirst($this->lang->line('create_user_validation_password_label')), 'required|min_length[' . $this->config->item('min_password_length', 'ion_auth') . ']|max_length[' . $this->config->item('max_password_length', 'ion_auth') . ']|matches[password_confirm]');
         $this->form_validation->set_rules('password_confirm', ucfirst($this->lang->line('create_user_validation_password_confirm_label')), 'required');
+
 		if ($this->form_validation->run() == true)
         {
-            $email    = strtolower($this->input->post('email'));
-            $identity =  $email ;
+            $identity = $this->input->post('identity');
             $password = $this->input->post('password');
 
             
         }
-		if ($this->form_validation->run() == true && $this->ion_auth->register($identity, $password, $email))
+		if ($this->form_validation->run() == true && $this->ion_auth->register($identity, $password, $identity))
         {
             
 		   if($this->input->post('ajax')){
